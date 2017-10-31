@@ -1,0 +1,76 @@
+VERSION=4
+NUM=0
+LEN=0
+MODE=0
+LN=0
+ALLOW=""
+for Y in $@
+do
+	if [ $Y = "-n" ]
+	then
+		MODE=1
+		ALLOW=$ALLOW"0-9"
+	elif [ $Y = "-s" ]
+	then
+		MODE=5
+		ALLOW=$ALLOW'!@#$%^&*()-_=+'
+	elif [ $Y = "-l" ]
+	then
+		MODE=2
+		ALLOW=$ALLOW"a-z"
+	elif [ $Y = "-u" ]
+	then
+		MODE=3
+		ALLOW=$ALLOW"A-Z"
+	elif [ $Y = "-c" ]
+	then
+		ALLOW="0-9A-F"
+		LEN=6
+	elif [ $Y = "-X" ]
+	then
+		ALLOW='0-9A-Fa-f!@#$%^&**()-_=+'
+	elif [[ "$Y" =~ ^[0-9]+$ ]] && [[ LEN -eq 0 ]]
+	then
+		LEN=$Y
+	elif [[ "$Y" =~ ^[0-9]+$ ]] && [[ LEN -gt 0 ]]
+	then
+		NUM=$Y
+	elif [ $Y = "-b" ]
+	then
+		MODE=0
+	elif [ $Y = "-N" ]
+	then
+		LN=1
+  elif [ $Y = "-D" ]
+  then
+    echo $(curl -s "http://www.dinopass.com/password/simple")
+    exit
+	else
+		echo "rand [arg] [length] [number]"
+		echo "Arguements"
+		echo -e "-b\tbasic\n-X\tcomplex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass"
+		exit
+	fi
+done
+if [ $LEN -eq 0 ]
+then
+	LEN=10
+fi
+if [ $NUM -eq 0 ]
+then
+	NUM=1
+fi
+if [ x$ALLOW = "x" ]
+then
+	ALLOW="A-Za-z0-9"
+fi
+X=0
+while [ $X -lt $NUM ]
+do
+	if [ $LN -eq 1 ]
+	then
+		printf "%0${#NUM}g: " "$(($X+1))"
+	fi
+	</dev/urandom tr -dc $ALLOW | head -c$LEN;echo  
+	let "X++"
+done
