@@ -1,5 +1,5 @@
 # Rand
-Random String Generator
+```Random String Generator
 Version 5
 
 
@@ -14,3 +14,4 @@ Arguements
 -s      symbols
 -c      color
 -D      dinopass
+```
