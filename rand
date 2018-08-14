@@ -1,4 +1,4 @@
-VERSION=4
+VERSION=5
 NUM=0
 LEN=0
 MODE=0
@@ -29,6 +29,9 @@ do
 	elif [ $Y = "-X" ]
 	then
 		ALLOW='0-9A-Fa-f!@#$%^&**()-_=+'
+	elif [ $Y = "-x" ]
+	then
+		ALLOW='0-9A-Fa-f!-.'
 	elif [[ "$Y" =~ ^[0-9]+$ ]] && [[ LEN -eq 0 ]]
 	then
 		LEN=$Y
@@ -48,7 +51,7 @@ do
 	else
 		echo "rand [arg] [length] [number]"
 		echo "Arguements"
-		echo -e "-b\tbasic\n-X\tcomplex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass"
+		echo -e "-b\tbasic\n-X\tcomplex\n-x\treduced complex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass"
 		exit
 	fi
 done
