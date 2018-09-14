@@ -32,6 +32,7 @@ do
 	elif [ $Y = "-B" ]
 	then
 		ALLOW='01'
+		LEN=8
 	elif [ $Y = "-x" ]
 	then
 		ALLOW='0-9A-Fa-f!-.'
