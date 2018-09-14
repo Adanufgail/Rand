@@ -1,4 +1,4 @@
-VERSION=5
+VERSION=6
 NUM=0
 LEN=0
 MODE=0
@@ -29,6 +29,9 @@ do
 	elif [ $Y = "-X" ]
 	then
 		ALLOW='0-9A-Fa-f!@#$%^&**()-_=+'
+	elif [ $Y = "-B" ]
+	then
+		ALLOW='01'
 	elif [ $Y = "-x" ]
 	then
 		ALLOW='0-9A-Fa-f!-.'
@@ -51,7 +54,7 @@ do
 	else
 		echo "rand [arg] [length] [number]"
 		echo "Arguements"
-		echo -e "-b\tbasic\n-X\tcomplex\n-x\treduced complex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass"
+		echo -e "-b\tbasic\n-X\tcomplex\n-x\treduced complex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass\n-B\tbinary"
 		exit
 	fi
 done
