@@ -1,6 +1,6 @@
 # Rand
 ```Random String Generator
-Version 7
+Version 8
 
 
 rand [arg] [length] [number]
@@ -15,5 +15,6 @@ Arguements
 -c      color
 -D      dinopass
 -B      binary
--S	simple
+-S	    simple
+-v      version
 ```
