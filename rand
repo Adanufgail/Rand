@@ -1,4 +1,4 @@
-VERSION=9
+VERSION=10
 NUM=0
 LEN=0
 MODE=0
@@ -57,12 +57,12 @@ do
     exit
   elif [ $Y = "-D" ]
   then
-    echo $(curl -s "http://www.dinopass.com/password/simple")
+    echo $(curl -s "https://www.dinopass.com/password/simple")
     exit
 	else
 		echo "rand [arg] [length] [number]"
 		echo "Arguements"
-		echo -e "rand v$VERSION 2018-12-11\n-b\tbasic\n-X\tcomplex\n-x\treduced complex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass\n-B\tbinary\n-S\tSimple"
+		echo -e "rand v$VERSION 2019-05-21\n-b\tbasic\n-X\tcomplex\n-x\treduced complex\n-n\tnumber\n-l\tlowercase\n-u\tuppercase\n-s\tsymbols\n-c\tcolor\n-D\tdinopass\n-B\tbinary\n-S\tSimple"
 		exit
 	fi
 done
