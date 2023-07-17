@@ -2053,5 +2053,5 @@ symbol=')!@#$%^&*('
 rand = SystemRandom()
 num1=rand.randrange(9)
 num2=rand.randrange(9)
-num=(num1*10)+num2
+num=str(num1)+str(num2)
 print bip[rand.randrange(len(bip))]+str(num)+bip[rand.randrange(len(bip))].upper()+symbol[num1]+symbol[num2]
